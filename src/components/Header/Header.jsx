@@ -12,14 +12,14 @@ const Header = () => {
       <form>
         <input type="text" />
         <button>
-          <img src={search} alt="search icon" />
+          <img className={`${styles.menuImg}`} src={search} alt="search icon" />
         </button>
       </form>
       <button>
-        <img src={home} alt="home" />
+        <img className={`${styles.menuImg}`} src={home} alt="home" />
       </button>
       <button>
-        <img src={cart} alt="cart" />
+        <img className={`${styles.menuImg}`} src={cart} alt="cart" />
       </button>
     </header>
   );
