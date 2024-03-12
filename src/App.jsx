@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Header from './components/Header';
 
 const useItemData = () => {
   const [items, setItems] = useState(null);
@@ -37,7 +38,7 @@ const App = () => {
   if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;
 
-  return;
+  return <Header />;
 };
 
 export default App;
