@@ -7,15 +7,15 @@ const Item = ({ item }) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    setQuantity(value > limit ? limit : value);
+    setQuantity(value > limit ? limit : value < 0 ? 0 : value);
   };
 
   const increment = () => {
-    if (quantity < limit) setQuantity((prev) => prev + 1);
+    if (quantity < limit) setQuantity((prev) => parseInt(prev) + 1);
   };
 
   const decrement = () => {
-    if (quantity > 0) setQuantity((prev) => prev - 1);
+    if (quantity > 0) setQuantity((prev) => parseInt(prev) - 1);
   };
   return (
     <div className={styles.container}>
