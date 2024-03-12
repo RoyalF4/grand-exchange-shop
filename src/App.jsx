@@ -41,6 +41,7 @@ const useItemData = () => {
 
 const App = () => {
   const { items, error, loading } = useItemData();
+  console.log(items);
 
   if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;

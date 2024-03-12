@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const Item = ({ item }) => {
   const [quantity, setQuantity] = useState(0);
-  const { imgURL, name, limit } = item;
+  const { imgURL, name, value } = item;
 
   return (
     <div className={styles.container}>
@@ -11,6 +11,9 @@ const Item = ({ item }) => {
         <img className={styles.itemImg} src={imgURL} alt={name} />
       </div>
       <h4 className={styles.text}>{name}</h4>
+      <div>
+        {value.toLocaleString()} {value === 1 ? 'coin' : 'coins'}
+      </div>
     </div>
   );
 };
