@@ -19,7 +19,7 @@ const Shop = () => {
       <h1>Shop</h1>
       <div className={styles.shopContainer}>
         {initialItems.map((item) => (
-          <Item item={item} />
+          <Item key={item.id} item={item} />
         ))}
       </div>
     </>
