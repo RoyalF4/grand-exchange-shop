@@ -20,4 +20,10 @@
   --primary: #483e33;
   --font: #b38606;
   --font-text-shadow: 4px 4px 0 #000;
+  --background: #2a231a;
+}
+
+main {
+  background: var(--background);
+  height: 100vh;
 }

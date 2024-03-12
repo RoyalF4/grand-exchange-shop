@@ -1,5 +1,12 @@
+import { useOutletContext } from 'react-router-dom';
+
 const Shop = () => {
-  return <h1>Shop</h1>;
+  const items = useOutletContext();
+  return (
+    <>
+      <h1>Shop</h1>
+    </>
+  );
 };
 
 export default Shop;

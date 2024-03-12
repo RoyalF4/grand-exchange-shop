@@ -18,7 +18,12 @@ const useItemData = () => {
         if (!response.ok) {
           throw new Error(`There was a network error: ${response.status}`);
         }
-        const data = await response.json();
+        let data = await response.json();
+        data = data.map((item) => {
+          const name = item.name.split(' ').join('_');
+          const imgUrl = `https://oldschool.runescape.wiki/images/${name}_detail.png?9e894`;
+          return { ...item, imgURL: imgUrl };
+        });
         setItems(data);
         setError(null);
       } catch (error) {
@@ -44,7 +49,7 @@ const App = () => {
     <div>
       <Header />
       <main>
-        <Outlet />
+        <Outlet context={items} />
       </main>
     </div>
   );
