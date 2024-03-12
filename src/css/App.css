@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'osrs';
+  src: url('../assets/osrs.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'osrs';
+  src: url('../assets/osrs_bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'osrs';
+  src: url('../assets/osrs_small.ttf') format('truetype');
+  font-weight: 100;
+}
+
+:root {
+  --primary: #483e33;
+  --font: #b38606;
+  --font-text-shadow: 4px 4px 0 #000;
+}

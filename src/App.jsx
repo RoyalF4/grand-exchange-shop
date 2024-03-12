@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Header from './components/Header';
+import './css/App.css';
+import Header from './components/Header/Header';
 
 const useItemData = () => {
   const [items, setItems] = useState(null);
@@ -38,7 +39,12 @@ const App = () => {
   if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;
 
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <h1>Hello</h1>
+    </div>
+  );
 };
 
 export default App;

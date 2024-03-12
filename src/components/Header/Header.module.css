@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: var(--primary);
+}
+
+.h1 {
+  font-family: 'osrs';
+  font-weight: bold;
+  font-size: 4rem;
+  flex: 1;
+  color: var(--font);
+  text-shadow: var(--font-text-shadow);
+}
+
+.logo {
+  width: 50px;
+}
