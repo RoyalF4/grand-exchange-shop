@@ -21,9 +21,22 @@
   --font: #b38606;
   --font-text-shadow: 4px 4px 0 #000;
   --background: #2a231a;
+  --parchment: #968459;
+  --background-light: #493f34;
+}
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
 }
 
 main {
   background: var(--background);
   height: 100vh;
+  padding: 50px;
+}
+
+.container {
+  max-width: 1300px;
 }

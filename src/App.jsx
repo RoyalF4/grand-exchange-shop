@@ -46,7 +46,7 @@ const App = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className="container">
       <Header />
       <main>
         <Outlet context={items} />
