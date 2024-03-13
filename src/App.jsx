@@ -19,11 +19,13 @@ const useItemData = () => {
           throw new Error(`There was a network error: ${response.status}`);
         }
         let data = await response.json();
-        data = data.map((item) => {
-          const name = item.name.split(' ').join('_');
-          const imgUrl = `https://oldschool.runescape.wiki/images/${name}_detail.png?9e894`;
-          return { ...item, imgURL: imgUrl };
-        });
+        data = data
+          .filter((item) => item.value > 1)
+          .map((item) => {
+            const name = item.name.split(' ').join('_');
+            const imgUrl = `https://oldschool.runescape.wiki/images/${name}_detail.png?9e894`;
+            return { ...item, imgURL: imgUrl };
+          });
         setItems(data);
         setError(null);
       } catch (error) {
@@ -41,7 +43,27 @@ const useItemData = () => {
 
 const App = () => {
   const { items, error, loading } = useItemData();
-  console.log(items);
+  const [cart, setCart] = useState([]);
+  console.log(cart);
+
+  const handleSubmit = (item, quantity) => {
+    if (cart.length === 0) {
+      setCart([{ ...item, quantity }]);
+    } else {
+      let isNew = true;
+      const newCart = cart.map((cartItem) => {
+        // if item already exist, update quantity
+        if (cartItem.id === item.id) {
+          isNew = false;
+          return { ...item, quantity };
+        }
+        return cartItem;
+      });
+      // if item is new, add to array
+      if (isNew) newCart.push({ ...item, quantity });
+      setCart(newCart);
+    }
+  };
 
   if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;
@@ -50,7 +72,7 @@ const App = () => {
     <div className="container">
       <Header />
       <main>
-        <Outlet context={items} />
+        <Outlet context={{ items, cart, handleSubmit }} />
       </main>
     </div>
   );

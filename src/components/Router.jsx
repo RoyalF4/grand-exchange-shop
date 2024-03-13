@@ -4,6 +4,7 @@ import ErrorPage from './ErrorPage';
 import Shop from './Shop/Shop';
 import Cart from './Cart/Cart';
 import Home from './Home/Home';
+import ItemInfo from './ItemInfo/ItemInfo';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -15,8 +16,13 @@ const Router = () => {
         { index: true, element: <Home /> },
         { path: 'shop', element: <Shop /> },
         { path: 'cart', element: <Cart /> },
+        { path: 'item', element: <ItemInfo /> },
       ],
     },
+    // {
+    //   path: 'item',
+    //   element: <ItemInfo />,
+    // },
   ]);
 
   return <RouterProvider router={router} />;
