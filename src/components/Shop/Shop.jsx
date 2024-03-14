@@ -46,22 +46,18 @@ const Shop = () => {
         />
       </form>
       <div>Members: ✅ Non-Members: ❌</div>
-      {/* <form>
-        <label htmlFor="members"></label>
-        <select id="members" onChange={handleMemberFilter}>
-          <option value={'both'}>Both</option>
-          <option value={true}>Members</option>
-          <option value={false}>Non-Members</option>
-        </select>
-      </form> */}
       <div className={styles.shopContainer}>
-        {initialItems.map((item) => {
-          return (
-            <Link key={item.id} to="/item" state={item}>
-              <Item item={item} />
-            </Link>
-          );
-        })}
+        {initialItems.length > 0 ? (
+          initialItems.map((item) => {
+            return (
+              <Link key={item.id} to="/item" state={item}>
+                <Item item={item} />
+              </Link>
+            );
+          })
+        ) : (
+          <h1>Sorry, no results found.</h1>
+        )}
       </div>
     </>
   );

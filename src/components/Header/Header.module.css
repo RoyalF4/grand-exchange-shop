@@ -29,6 +29,7 @@
 
 .menuImg + span {
   font-size: 2rem;
+  text-shadow: 1.5px 1.5px black;
 }
 
 .headerBtn {

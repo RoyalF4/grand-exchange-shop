@@ -2,20 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: var(--background-light);
   gap: 20px;
   padding: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 635px;
 }
 
 .container > h3 {
-  font-size: 3rem;
-  color: var(--font);
+  font-size: 4rem;
+  color: #d39d08;
   text-shadow: 2px 2px black;
 }
 
 .searchForm button {
-  width: 30px;
-  padding: 0;
+  width: 40px;
+  padding: 2px;
   border: none;
   background-color: white;
   border-radius: 0 5px 5px 0;
@@ -29,14 +33,29 @@
 .searchForm input {
   border: none;
   border-radius: 5px 0 0 5px;
-  padding: 2px;
+  padding: 5px;
+  width: 300px;
+  font-size: 1rem;
+}
+
+.searchForm input,
+.searchForm button {
+  box-sizing: border-box;
+  height: 35px;
 }
 
 .searchForm img {
-  width: 15px;
+  width: 25px;
   padding: 2px;
 }
 
 .searchBar {
   display: flex;
+}
+
+.shopBtn {
+  width: 120px;
+  height: 40px;
+  font-size: 1.5rem;
+  text-shadow: 1.5px 1.5px black;
 }
