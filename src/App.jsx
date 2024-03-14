@@ -20,7 +20,7 @@ const useItemData = () => {
         }
         let data = await response.json();
         data = data
-          // remove items with no value or no limit
+          // remove items with no value or no buy limit
           .filter((item) => item.value > 1 || !item.hasOwnProperty('limit'))
           // build image url for each item
           .map((item) => {
@@ -46,7 +46,6 @@ const useItemData = () => {
 const App = () => {
   const { items, error, loading } = useItemData();
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
   const handleSubmit = (item, quantity) => {
     if (cart.length === 0) {

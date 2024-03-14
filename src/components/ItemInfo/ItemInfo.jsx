@@ -1,4 +1,4 @@
-import { useLocation, useOutletContext } from 'react-router-dom';
+import { useLocation, useOutletContext, Link } from 'react-router-dom';
 import styles from './ItemInfo.module.css';
 import { useState } from 'react';
 
@@ -6,7 +6,7 @@ const ItemInfo = () => {
   const { state: item } = useLocation();
   const [quantity, setQuantity] = useState(0);
   const { handleSubmit } = useOutletContext();
-  console.log(item);
+
   const increment = () => {
     if (quantity < item.limit) setQuantity((prev) => parseInt(prev) + 1);
   };
@@ -43,7 +43,11 @@ const ItemInfo = () => {
             if (quantity > 0) handleSubmit(item, quantity);
           }}
         >
-          <button type="button" onClick={decrement}>
+          <button
+            type="button"
+            onClick={decrement}
+            disabled={quantity === 0 ? true : false}
+          >
             -
           </button>
           <input
@@ -53,12 +57,19 @@ const ItemInfo = () => {
             min={0}
             max={item.limit}
           />
-          <button type="button" onClick={increment}>
+          <button
+            type="button"
+            onClick={increment}
+            disabled={quantity === item.limit ? true : false}
+          >
             +
           </button>
           <button>Add to cart</button>
         </form>
       </div>
+      <Link to="/shop">
+        <button>Back to shop</button>
+      </Link>
     </div>
   );
 };
