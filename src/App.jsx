@@ -24,7 +24,11 @@ const useItemData = () => {
           .filter((item) => item.value > 1 || !item.hasOwnProperty('limit'))
           // build image url for each item
           .map((item) => {
-            const name = item.name.split(' ').join('_');
+            let name = item.name.split(' ').join('_');
+            // if item has charges, remove charges
+            if (name.endsWith('(uncharged)')) {
+              name = name.slice(0, -12);
+            }
             const imgUrl = `https://oldschool.runescape.wiki/images/${name}_detail.png?9e894`;
             return { ...item, imgURL: imgUrl };
           });

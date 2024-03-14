@@ -12,10 +12,7 @@ import searchIcon from '../../assets/search.svg';
 const Shop = () => {
   const { items } = useOutletContext();
   const { search } = useParams();
-  const [memberFilter, setMemberFilter] = useState('both');
   const [searchFilter, setSearchFilter] = useState(search ? search : '');
-
-  console.log(searchFilter);
 
   const filterItems = () => {
     return items.filter((item) => {
@@ -31,12 +28,12 @@ const Shop = () => {
     setMemberFilter(event.target.value);
   };
 
-  const initialItems = filterItems().slice(0, 18);
+  const initialItems = filterItems().slice(0, 24);
 
   return (
-    <>
-      <h1>Shop</h1>
-      <form>
+    <div className={styles.container}>
+      <h1 className={styles.shopTitle}>Shop</h1>
+      <form className={styles.searchBar}>
         <input
           id="search"
           type="text"
@@ -45,7 +42,7 @@ const Shop = () => {
           placeholder="Filter results..."
         />
       </form>
-      <div>Members: ✅ Non-Members: ❌</div>
+      <div className={styles.legend}>Members: ✅ Non-Members: ❌</div>
       <div className={styles.shopContainer}>
         {initialItems.length > 0 ? (
           initialItems.map((item) => {
@@ -59,7 +56,7 @@ const Shop = () => {
           <h1>Sorry, no results found.</h1>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -12,7 +12,7 @@ const Item = ({ item }) => {
         <img className={styles.itemImg} src={imgURL} alt={name} />
       </div>
       <h4 className={styles.text}>{name}</h4>
-      <div>
+      <div className={styles.value}>
         {value.toLocaleString()} {value === 1 ? 'coin' : 'coins'}
       </div>
     </div>

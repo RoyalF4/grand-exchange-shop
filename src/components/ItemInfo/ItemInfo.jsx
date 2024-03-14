@@ -22,53 +22,60 @@ const ItemInfo = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgContainer}>
-        <img className={styles.itemImg} src={item.imgURL} alt={item.name} />
-      </div>
-      <div>
-        <h4>{item.name}</h4>
-        <p>{item.examine}</p>
-        <div>
-          <span>Low Alch: {item.lowalch}</span>
-          <span>High Alch: {item.highalch}</span>
+      <div className={styles.itemContainer}>
+        <div className={styles.imgContainer}>
+          <img className={styles.itemImg} src={item.imgURL} alt={item.name} />
         </div>
-        <div>Members Item: {item.member ? '✅' : '🚫'}</div>
-        <div>Limit: {item.limit}</div>
-        <div>
-          {item.value.toLocaleString()} {item.value === 1 ? 'coin' : 'coins'}
+        <div className={styles.info}>
+          <h4>{item.name}</h4>
+          <p>{item.examine}</p>
+          <div className={styles.alch}>
+            <span>Low Alch: {item.lowalch.toLocaleString()}</span>
+            <span>High Alch: {item.highalch.toLocaleString()}</span>
+          </div>
+          <div>Members Item: {item.member ? '✅' : '🚫'}</div>
+          <div>Limit: {item.limit}</div>
+          <div className={styles.value}>
+            {item.value.toLocaleString()} {item.value === 1 ? 'coin' : 'coins'}
+          </div>
+          <form
+            className={styles.form}
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (quantity > 0) handleSubmit(item, quantity);
+            }}
+          >
+            <div className={styles.quantityContainer}>
+              <button
+                type="button"
+                onClick={decrement}
+                disabled={quantity === 0 ? true : false}
+                className={styles.quantityBtn}
+              >
+                -
+              </button>
+              <input
+                type="number"
+                onChange={handleChange}
+                value={quantity}
+                min={0}
+                max={item.limit}
+              />
+              <button
+                type="button"
+                onClick={increment}
+                disabled={quantity === item.limit ? true : false}
+                className={styles.quantityBtn}
+              >
+                +
+              </button>
+            </div>
+            <button className={styles.cartBtn}>Add to cart</button>
+          </form>
         </div>
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (quantity > 0) handleSubmit(item, quantity);
-          }}
-        >
-          <button
-            type="button"
-            onClick={decrement}
-            disabled={quantity === 0 ? true : false}
-          >
-            -
-          </button>
-          <input
-            type="number"
-            onChange={handleChange}
-            value={quantity}
-            min={0}
-            max={item.limit}
-          />
-          <button
-            type="button"
-            onClick={increment}
-            disabled={quantity === item.limit ? true : false}
-          >
-            +
-          </button>
-          <button>Add to cart</button>
-        </form>
       </div>
       <Link to="/shop">
-        <button>Back to shop</button>
+        <button className={styles.backBtn}>Back to shop</button>
       </Link>
     </div>
   );

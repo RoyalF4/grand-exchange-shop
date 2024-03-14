@@ -1,10 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .shopContainer {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .shopContainer a {
   text-decoration: none;
   color: inherit;
+}
+
+.shopTitle {
+  color: var(--font);
+  text-shadow: 2px 2px black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.legend {
+  color: var(--font);
+  font-size: 1.2rem;
+  text-shadow: 2px 2px black;
+}
+
+.searchBar > input {
+  width: 250px;
+  height: 20px;
+  font-size: 1rem;
+  padding: 2px;
 }
