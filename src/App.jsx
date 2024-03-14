@@ -20,7 +20,9 @@ const useItemData = () => {
         }
         let data = await response.json();
         data = data
-          .filter((item) => item.value > 1)
+          // remove items with no value or no limit
+          .filter((item) => item.value > 1 || !item.hasOwnProperty('limit'))
+          // build image url for each item
           .map((item) => {
             const name = item.name.split(' ').join('_');
             const imgUrl = `https://oldschool.runescape.wiki/images/${name}_detail.png?9e894`;
