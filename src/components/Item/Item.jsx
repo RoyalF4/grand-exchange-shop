@@ -7,6 +7,7 @@ const Item = ({ item }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.members}>{item.members ? '✅' : '❌'}</div>
       <div className={styles.imgContainer}>
         <img className={styles.itemImg} src={imgURL} alt={name} />
       </div>

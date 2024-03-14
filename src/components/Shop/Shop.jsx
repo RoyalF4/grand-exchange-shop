@@ -35,6 +35,7 @@ const Shop = () => {
           placeholder="Filter results..."
         />
       </form>
+      <div>Members: ✅ Non-Members: ❌</div>
       <div className={styles.shopContainer}>
         {initialItems.map((item) => {
           return (
