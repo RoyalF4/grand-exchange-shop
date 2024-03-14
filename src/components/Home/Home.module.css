@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-light);
+  gap: 20px;
+  padding: 20px;
+}
+
+.container > h3 {
+  font-size: 3rem;
+  color: var(--font);
+  text-shadow: 2px 2px black;
+}
+
+.searchForm button {
+  width: 30px;
+  padding: 0;
+  border: none;
+  background-color: white;
+  border-radius: 0 5px 5px 0;
+  box-shadow: none;
+}
+
+.searchForm button:hover {
+  background: rgb(176, 176, 176);
+}
+
+.searchForm input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 2px;
+}
+
+.searchForm img {
+  width: 15px;
+  padding: 2px;
+}
+
+.searchBar {
+  display: flex;
+}

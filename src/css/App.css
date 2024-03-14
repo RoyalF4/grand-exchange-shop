@@ -29,6 +29,7 @@ body {
   background: black;
   display: flex;
   justify-content: center;
+  font-family: 'osrs';
 }
 
 main {
@@ -39,4 +40,22 @@ main {
 
 .container {
   width: 1300px;
+}
+
+button {
+  background: #645748;
+  font-family: 'osrs';
+  color: var(--font);
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3a3229;
+}
+
+a {
+  text-decoration: none;
 }

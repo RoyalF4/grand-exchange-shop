@@ -5,19 +5,34 @@
   background: var(--primary);
 }
 
+.logoContainer {
+  flex: 1;
+}
+
 .h1 {
+  display: inline;
   font-family: 'osrs';
   font-weight: bold;
   font-size: 4rem;
-  flex: 1;
   color: var(--font);
   text-shadow: var(--font-text-shadow);
 }
 
 .logo {
   width: 50px;
+  margin: 0 20px 0 5px;
 }
 
 .menuImg {
-  width: 25px;
+  width: 40px;
+}
+
+.menuImg + span {
+  font-size: 2rem;
+}
+
+.headerBtn {
+  display: flex;
+  align-items: center;
+  margin: 0 5px 0 0;
 }

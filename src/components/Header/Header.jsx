@@ -9,21 +9,25 @@ const Header = () => {
   return (
     <header className={`${styles.container}`}>
       <img className={`${styles.logo}`} src={logo} alt="gold coins" />
-      <h1 className={`${styles.h1}`}>Grand Exchange</h1>
+      <div className={styles.logoContainer}>
+        <Link to="/">
+          <h1 className={`${styles.h1}`}>Grand Exchange</h1>
+        </Link>
+      </div>
       <Link to="/">
-        <button>
+        <button className={styles.headerBtn}>
           <img className={`${styles.menuImg}`} src={home} alt="home" />
           <span>Home</span>
         </button>
       </Link>
       <Link to="/shop">
-        <button>
+        <button className={styles.headerBtn}>
           <img className={`${styles.menuImg}`} src={shop} alt="shop" />
           <span>Shop</span>
         </button>
       </Link>
       <Link to="/cart">
-        <button>
+        <button className={styles.headerBtn}>
           <img className={`${styles.menuImg}`} src={cart} alt="cart" />
           <span>Cart</span>
         </button>

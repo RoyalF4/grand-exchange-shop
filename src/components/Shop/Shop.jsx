@@ -1,4 +1,9 @@
-import { useOutletContext, Link } from 'react-router-dom';
+import {
+  useOutletContext,
+  Link,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import Item from '../Item/Item';
 import styles from './Shop.module.css';
 import { useState } from 'react';
@@ -6,20 +11,25 @@ import searchIcon from '../../assets/search.svg';
 
 const Shop = () => {
   const { items } = useOutletContext();
-  const [member, setMember] = useState(false);
-  const [search, setSearch] = useState('');
+  const { search } = useParams();
+  const [memberFilter, setMemberFilter] = useState('both');
+  const [searchFilter, setSearchFilter] = useState(search ? search : '');
+
+  console.log(searchFilter);
 
   const filterItems = () => {
     return items.filter((item) => {
-      if (search) {
-        const regex = new RegExp(search, 'i');
+      if (searchFilter) {
+        const regex = new RegExp(searchFilter, 'i');
         return regex.test(item.name);
       }
       return true;
     });
   };
 
-  console.log(filterItems());
+  const handleMemberFilter = (event) => {
+    setMemberFilter(event.target.value);
+  };
 
   const initialItems = filterItems().slice(0, 18);
 
@@ -30,12 +40,20 @@ const Shop = () => {
         <input
           id="search"
           type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchFilter}
+          onChange={(e) => setSearchFilter(e.target.value)}
           placeholder="Filter results..."
         />
       </form>
       <div>Members: ✅ Non-Members: ❌</div>
+      {/* <form>
+        <label htmlFor="members"></label>
+        <select id="members" onChange={handleMemberFilter}>
+          <option value={'both'}>Both</option>
+          <option value={true}>Members</option>
+          <option value={false}>Non-Members</option>
+        </select>
+      </form> */}
       <div className={styles.shopContainer}>
         {initialItems.map((item) => {
           return (

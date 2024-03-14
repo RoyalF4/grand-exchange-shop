@@ -15,14 +15,11 @@ const Router = () => {
       children: [
         { index: true, element: <Home /> },
         { path: 'shop', element: <Shop /> },
+        { path: 'shop/:search', element: <Shop /> },
         { path: 'cart', element: <Cart /> },
         { path: 'item', element: <ItemInfo /> },
       ],
     },
-    // {
-    //   path: 'item',
-    //   element: <ItemInfo />,
-    // },
   ]);
 
   return <RouterProvider router={router} />;
