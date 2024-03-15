@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  font-size: 2.5rem;
+  color: var(--font);
+}
+
+.total {
+  background: var(--background-light);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px 0 0;
+  font-size: 1.5rem;
+  color: var(--font);
+  text-shadow: 1.5px 1.5px black;
+}
+
+.total span {
+  color: white;
+  margin: 0 0 0 10px;
+}

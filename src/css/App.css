@@ -23,6 +23,10 @@
   --background: #2a231a;
   --parchment: #968459;
   --background-light: #493f34;
+  --background-light-hover: #3a3229;
+  --toastify-font-family: 'osrs' !important;
+  --toastify-color-success: #493f34;
+  --toastify-text-color-success: #b38606;
 }
 
 body {
@@ -58,4 +62,9 @@ button:hover {
 
 a {
   text-decoration: none;
+}
+
+.toastBody {
+  font-size: 2rem;
+  text-shadow: 2px 2px black;
 }

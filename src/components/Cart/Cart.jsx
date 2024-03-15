@@ -1,34 +1,34 @@
+import { useOutletContext, Link } from 'react-router-dom';
+import styles from './Cart.module.css';
+import CartItem from '../CartItem/CartItem';
+
 const Cart = () => {
-  return <h1>Cart</h1>;
+  const { cart } = useOutletContext();
+
+  const total = cart.reduce(
+    (total, item) => total + item.quantity * item.value,
+    0
+  );
+  console.log(cart);
+  // if cart is empty return message
+  if (cart.length === 0) {
+    return (
+      <span className={styles.empty}>
+        No items in cart, click <Link to="/shop">here</Link> to go back to the
+        shop!
+      </span>
+    );
+  }
+  return (
+    <div className={styles.container}>
+      {cart.map((item) => (
+        <CartItem item={item} />
+      ))}
+      <div className={styles.total}>
+        Total: <span>{total.toLocaleString()} coins</span>
+      </div>
+    </div>
+  );
 };
 
 export default Cart;
-
-// const increment = () => {
-//   if (quantity < limit) setQuantity((prev) => parseInt(prev) + 1);
-// };
-
-// const decrement = () => {
-//   if (quantity > 0) setQuantity((prev) => parseInt(prev) - 1);
-// };
-
-// const handleChange = (event) => {
-//   const { value } = event.target;
-//   setQuantity(value > limit ? limit : value < 0 ? 0 : value);
-// };
-
-// <form className={styles.quantity}>
-//         <button type="button" onClick={decrement}>
-//           -
-//         </button>
-//         <input
-//           type="number"
-//           onChange={handleChange}
-//           value={quantity}
-//           min="0"
-//           max={limit}
-//         />
-//         <button type="button" onClick={increment}>
-//           +
-//         </button>
-//       </form>

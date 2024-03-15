@@ -56,6 +56,12 @@
   color: #443b2e;
 }
 
+.quantityBtn:active,
+.backBtn:active,
+.cartBtn:active {
+  transform: scale(1.1);
+}
+
 .cartBtn {
   display: block;
   width: 125px;

@@ -1,13 +1,7 @@
-import {
-  useOutletContext,
-  Link,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { useOutletContext, Link, useParams } from 'react-router-dom';
 import Item from '../Item/Item';
 import styles from './Shop.module.css';
 import { useState } from 'react';
-import searchIcon from '../../assets/search.svg';
 
 const Shop = () => {
   const { items } = useOutletContext();
@@ -22,10 +16,6 @@ const Shop = () => {
       }
       return true;
     });
-  };
-
-  const handleMemberFilter = (event) => {
-    setMemberFilter(event.target.value);
   };
 
   const initialItems = filterItems().slice(0, 24);

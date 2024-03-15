@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import './css/App.css';
 import Header from './components/Header/Header';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const useItemData = () => {
   const [items, setItems] = useState(null);
@@ -21,7 +23,7 @@ const useItemData = () => {
         let data = await response.json();
         data = data
           // remove items with no value or no buy limit
-          .filter((item) => item.value > 1 || !item.hasOwnProperty('limit'))
+          .filter((item) => item.value > 1 && item.hasOwnProperty('limit'))
           // build image url for each item
           .map((item) => {
             let name = item.name.split(' ').join('_');
@@ -70,6 +72,10 @@ const App = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
   if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;
 
@@ -77,8 +83,22 @@ const App = () => {
     <div className="container">
       <Header />
       <main>
-        <Outlet context={{ items, cart, handleSubmit }} />
+        <Outlet context={{ items, cart, handleSubmit, handleDelete }} />
       </main>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition:Slide
+        bodyClassName="toastBody"
+      />
     </div>
   );
 };

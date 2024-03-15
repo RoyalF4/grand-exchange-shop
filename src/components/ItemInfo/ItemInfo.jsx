@@ -1,6 +1,8 @@
 import { useLocation, useOutletContext, Link } from 'react-router-dom';
 import styles from './ItemInfo.module.css';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemInfo = () => {
   const { state: item } = useLocation();
@@ -42,6 +44,7 @@ const ItemInfo = () => {
             className={styles.form}
             onSubmit={(event) => {
               event.preventDefault();
+              toast.success('Item added to cart!');
               if (quantity > 0) handleSubmit(item, quantity);
             }}
           >
