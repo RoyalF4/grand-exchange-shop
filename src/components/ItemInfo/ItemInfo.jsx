@@ -35,7 +35,7 @@ const ItemInfo = () => {
             <span>Low Alch: {item.lowalch.toLocaleString()}</span>
             <span>High Alch: {item.highalch.toLocaleString()}</span>
           </div>
-          <div>Members Item: {item.member ? '✅' : '🚫'}</div>
+          <div>Members Item: {item.members ? '✅' : '🚫'}</div>
           <div>Limit: {item.limit}</div>
           <div className={styles.value}>
             {item.value.toLocaleString()} {item.value === 1 ? 'coin' : 'coins'}
