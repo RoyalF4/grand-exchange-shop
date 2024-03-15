@@ -18,7 +18,7 @@ const Shop = () => {
     });
   };
 
-  const initialItems = filterItems().slice(0, 24);
+  const initialItems = filterItems().slice(0, 36);
 
   return (
     <div className={styles.container}>

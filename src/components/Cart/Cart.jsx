@@ -1,6 +1,7 @@
 import { useOutletContext, Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 import CartItem from '../CartItem/CartItem';
+import { useState } from 'react';
 
 const Cart = () => {
   const { cart } = useOutletContext();
@@ -10,6 +11,7 @@ const Cart = () => {
     0
   );
   console.log(cart);
+
   // if cart is empty return message
   if (cart.length === 0) {
     return (
@@ -19,10 +21,11 @@ const Cart = () => {
       </span>
     );
   }
+
   return (
     <div className={styles.container}>
       {cart.map((item) => (
-        <CartItem item={item} />
+        <CartItem key={item.id} item={item} />
       ))}
       <div className={styles.total}>
         Total: <span>{total.toLocaleString()} coins</span>
